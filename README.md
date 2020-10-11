@@ -6,9 +6,11 @@ Compare algorithms for computing [Fibonacci numbers](https://en.wikipedia.org/wi
 This algorithm implements the formal definition of the Fibonacci
 numbers.
 
+```
 F(0) = 0
 F(1) = 1
 F(n) = F(n-1) + F(n-1)
+```
 
 ```lisp
 (defun fib-1 (n)
@@ -112,6 +114,17 @@ Computational complexity O(n)"
 
 ### Matrix exponentiation by squaring
 
+The matrix representation gives the following closed-form expression for the Fibonacci numbers:
+```
+/     \n  /              \
+| 1 1 |   | F(n+1) F(n)  |
+|     | = |              |
+| 1 0 |   | F(n)  F(n-1) |
+\     /   \              /
+```
+
+Exponentiation can be calculated in O(log n) [time](https://en.wikipedia.org/wiki/Exponentiation_by_squaring).
+
 ```lisp
 (defun fib-4 (n)
   "Exponentiation by squaring
@@ -171,8 +184,10 @@ Computational complexity O(log n)"
 
 ### Recursive calculation by identity
 
+```
 F(2n)   = 2 * F(n) * F(n+1) - (F(n))^2
 F(2n+1) = (F(n))^2 + (F(n+1))^2
+```
 
 ```lisp
 (defun fib-5 (n)
